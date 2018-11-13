@@ -10,7 +10,13 @@
     "author": "Moisés Ochoa",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^3.0.2",
+        "body-parser": "^1.18.3",
         "express": "^4.16.4",
-        "mongoose": "^5.3.10"
+        "jshint": "^2.9.6",
+        "jslint": "^0.12.0",
+        "jsonwebtoken": "^8.3.0",
+        "mongoose": "^5.3.10",
+        "mongoose-unique-validator": "^2.0.2"
     }
 }

@@ -1,0 +1,196 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "Resource found",
+    "data": [{
+            "id": "5b298ba2f168815f5478df2f",
+            "email": "bardoduran12@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b2c33c6003293138232a9e8",
+            "device_id": null,
+            "createdAt": "2018-06-19T23:02:59.385Z",
+            "updatedAt": "2018-06-21T23:27:13.156Z"
+        },
+        {
+            "id": "5b2a7e90003293138232a9b4",
+            "email": "chelisito11@hotmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b2a7fee003293138232a9b5",
+            "device_id": null,
+            "createdAt": "2018-06-20T16:19:29.249Z",
+            "updatedAt": "2018-10-03T20:00:50.708Z"
+        },
+        {
+            "id": "5b2acb25003293138232a9c9",
+            "email": "mundocelular321@hotmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b2ad72c003293138232a9ca",
+            "device_id": null,
+            "createdAt": "2018-06-20T21:46:14.052Z",
+            "updatedAt": "2018-06-20T22:37:33.003Z"
+        },
+        {
+            "id": "5b2be202003293138232a9d0",
+            "email": "roblesmvz@hotmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b2be4e0003293138232a9d1",
+            "device_id": "5b2c4449003293138232a9eb",
+            "createdAt": "2018-06-21T17:36:02.828Z",
+            "updatedAt": "2018-10-31T19:42:12.928Z"
+        },
+        {
+            "id": "5b2be4ee003293138232a9d2",
+            "email": "laciudadelamuebles@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b2be6da003293138232a9d3",
+            "device_id": null,
+            "createdAt": "2018-06-21T17:48:30.950Z",
+            "updatedAt": "2018-10-01T23:35:39.490Z"
+        },
+        {
+            "id": "5b2bf798003293138232a9e0",
+            "email": "sawappy.hello@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b2bf8ce003293138232a9e2",
+            "device_id": null,
+            "createdAt": "2018-06-21T19:08:08.496Z",
+            "updatedAt": "2018-11-08T23:37:41.490Z"
+        },
+        {
+            "id": "5b2c3f99003293138232a9e9",
+            "email": "papeleria.sc1@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b2c41e1003293138232a9ea",
+            "device_id": "5b2c4449003293138232a9eb",
+            "createdAt": "2018-06-22T00:15:21.486Z",
+            "updatedAt": "2018-06-22T00:36:03.405Z"
+        },
+        {
+            "id": "5b3fbb29881f765640447f1d",
+            "email": "masnatural@yahoo.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b3fbdff881f765640447f1e",
+            "device_id": "5bb3f5df3d8b86395a36d922",
+            "createdAt": "2018-07-06T18:55:38.285Z",
+            "updatedAt": "2018-10-02T22:57:19.898Z"
+        },
+        {
+            "id": "5b40bad5881f765640447f24",
+            "email": "alex.pinedo@wearebang.mx",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b4e2ab4799bbd45fbc66099",
+            "device_id": "5b2abf33003293138232a9bf",
+            "createdAt": "2018-07-07T13:06:29.711Z",
+            "updatedAt": "2018-07-17T17:44:39.141Z"
+        },
+        {
+            "id": "5b61d8e8799bbd45fbc660bd",
+            "email": "rilo.relojes@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b8427403d8b86395a36d878",
+            "device_id": null,
+            "createdAt": "2018-08-01T15:59:36.959Z",
+            "updatedAt": "2018-10-28T23:50:36.219Z"
+        },
+        {
+            "id": "5b97e8503d8b86395a36d882",
+            "email": "internetelgrullo@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b9840643d8b86395a36d883",
+            "device_id": null,
+            "createdAt": "2018-09-11T16:07:45.360Z",
+            "updatedAt": "2018-09-11T22:23:32.945Z"
+        },
+        {
+            "id": "5b9ab15c3d8b86395a36d886",
+            "email": "frankois095@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5b9ab74c3d8b86395a36d887",
+            "device_id": "5b7dab683d8b86395a36d863",
+            "createdAt": "2018-09-13T18:50:05.146Z",
+            "updatedAt": "2018-10-02T23:36:47.453Z"
+        },
+        {
+            "id": "5ba96f303d8b86395a36d8f2",
+            "email": "betitoq@hotmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5ba971433d8b86395a36d8f3",
+            "device_id": null,
+            "createdAt": "2018-09-24T23:11:44.803Z",
+            "updatedAt": "2018-09-24T23:48:04.185Z"
+        },
+        {
+            "id": "5bb29caa3d8b86395a36d901",
+            "email": "accesorios.mare@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5bb29da03d8b86395a36d902",
+            "device_id": null,
+            "createdAt": "2018-10-01T22:16:10.849Z",
+            "updatedAt": "2018-10-12T20:38:01.091Z"
+        },
+        {
+            "id": "5bb4f0f13d8b86395a36d928",
+            "email": "karlamarcelacastro@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5bb4f3973d8b86395a36d929",
+            "device_id": null,
+            "createdAt": "2018-10-03T16:40:18.137Z",
+            "updatedAt": "2018-10-03T16:51:35.300Z"
+        },
+        {
+            "id": "5bbad44a3d8b86395a36d930",
+            "email": "second.skin.staff@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5bbad6433d8b86395a36d931",
+            "device_id": "5bbad4283d8b86395a36d92f",
+            "createdAt": "2018-10-08T03:51:38.890Z",
+            "updatedAt": "2018-10-23T16:31:33.548Z"
+        },
+        {
+            "id": "5bbcf58d3d8b86395a36d93d",
+            "email": "grupoworldllantas@gmail.com",
+            "userType": "store",
+            "active": true,
+            "activationToken": "active",
+            "store_id": "5bbd38343d8b86395a36d93e",
+            "device_id": null,
+            "createdAt": "2018-10-09T18:38:06.403Z",
+            "updatedAt": "2018-10-09T23:22:28.186Z"
+        }
+    ],
+    "count": 52,
+    "limit": 50,
+    "offset": 0
+}

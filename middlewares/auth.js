@@ -19,9 +19,10 @@ exports.verifyToken = (req, res, next) => {
 
         req.usuario = decode.usuario;
 
-        res.status(200).json({
-            ok: false,
-            decode
-        });
+        next();
+        // res.status(200).json({
+        //     ok: false,
+        //     decode
+        // });
     });
 }

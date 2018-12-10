@@ -14,10 +14,13 @@
         "body-parser": "^1.18.3",
         "express": "^4.16.4",
         "express-fileupload": "^1.0.0",
+        "firebase-admin": "^6.3.0",
+        "google-auth-library": "^2.0.1",
         "jshint": "^2.9.6",
         "jslint": "^0.12.0",
         "jsonwebtoken": "^8.3.0",
         "mongoose": "^5.3.10",
-        "mongoose-unique-validator": "^2.0.2"
+        "mongoose-unique-validator": "^2.0.2",
+        "serve-index": "^1.9.1"
     }
 }

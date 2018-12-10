@@ -1,6 +1,7 @@
 // Requires
 var express = require('express');
 var mongoose = require('mongoose');
+var serveIndex = require('serve-index');
 var bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 
@@ -30,6 +31,11 @@ mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', { useNewUrlP
     if (err) throw err;
     console.log("Base de datos: \x1b[32m%s\x1b[0m", "Online")
 });
+
+// Serve URLs like /ftp/thing as public/ftp/thing
+// The express.static serves the file contents
+// The serveIndex is this module serving the directory
+app.use('/imgs', express.static(__dirname + '/uploads'), serveIndex(__dirname + '/uploads', { 'icons': true }))
 
 // Rutas
 app.use("/login", loginRoutes);

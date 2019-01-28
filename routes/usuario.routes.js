@@ -1,7 +1,6 @@
 var express = require('express');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
-
 var mdAuth = require('../middlewares/auth');
 
 var app = express();
@@ -12,8 +11,11 @@ var Usuario = require("../models/usuario.model");
 // ============================================
 
 app.get("/", (req, res, next) => {
-
-    Usuario.find({}, "nombre email img role")
+    var desde = req.query.desde || 0;
+    desde = Number(desde);
+    Usuario.find({}, "nombre email img role google")
+        .skip(desde)
+        .limit(5)
         .exec((err, usuarios) => {
             if (err) {
                 return res.status(500).json({
@@ -22,10 +24,12 @@ app.get("/", (req, res, next) => {
                     errors: err
                 });
             }
-
-            res.status(200).json({
-                ok: true,
-                usuarios
+            Usuario.count({}, (err, cont) => {
+                res.status(200).json({
+                    ok: true,
+                    count: cont,
+                    usuarios
+                });
             });
 
         });
@@ -35,7 +39,7 @@ app.get("/", (req, res, next) => {
 // Actualizar un usuario
 // ============================================
 
-app.put('/:id', mdAuth.verifyToken, (req, res, next) => {
+app.put('/:id', [mdAuth.verifyToken, mdAuth.verifyAdminRoleOrMySelf], (req, res, next) => {
 
     var id = req.params.id;
     var body = req.body;
@@ -66,7 +70,8 @@ app.put('/:id', mdAuth.verifyToken, (req, res, next) => {
                 return res.status(400).json({
                     ok: false,
                     mensaje: 'Error al actualizar usuario',
-                    errors: err
+                    errors: err,
+                    menu: login.getMenu(usuario.role)
                 });
             }
 
@@ -84,6 +89,7 @@ app.put('/:id', mdAuth.verifyToken, (req, res, next) => {
 // ============================================
 
 app.post('/', (req, res, next) => {
+
     var body = req.body;
     var usuario = new Usuario({
         nombre: body.nombre,
@@ -113,7 +119,7 @@ app.post('/', (req, res, next) => {
 // Borrar un usuario por el ID
 // ============================================
 
-app.delete('/:id', mdAuth.verifyToken, (req, res) => {
+app.delete('/:id', [mdAuth.verifyToken, mdAuth.verifyAdminRole], (req, res) => {
     var id = req.params.id;
     Usuario.findByIdAndRemove(id, (err, usuarioBorrado) => {
         if (err) {

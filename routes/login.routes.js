@@ -5,6 +5,7 @@ var SEED = require('../config/config').SEED;
 var admin = require('firebase-admin');
 var app = express();
 var Usuario = require("../models/usuario.model");
+var Menu = require("../models/menu.model");
 // Google
 const GOOGLE_CLIENT_ID = require('../config/config').GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = require('../config/config').CLIENT_SECRET;
@@ -74,12 +75,14 @@ app.post("/google", async(req, res) =>  {
                 });
             } else {
                 var token = jwt.sign({ usuarioDB }, SEED, { expiresIn: 14000 })
-
-                res.status(200).json({
-                    ok: true,
-                    usuarioDB,
-                    token,
-                    id: usuarioDB.id
+                Menu.findOne({ userType: usuarioDB.role }, (err, menu) => {
+                    res.status(200).json({
+                        ok: true,
+                        usuario: usuarioDB,
+                        token,
+                        id: usuarioDB.id,
+                        menu: menu
+                    });
                 });
             }
         } else {
@@ -102,16 +105,29 @@ app.post("/google", async(req, res) =>  {
                 }
 
                 var token = jwt.sign({ usuarioDB }, SEED, { expiresIn: 14000 })
-
-                res.status(200).json({
-                    ok: true,
-                    usuarioDB,
-                    token,
-                    id: usuarioDB.id
+                Menu.findOne({ userType: usuarioDB.role }, (err, menu) => {
+                    res.status(200).json({
+                        ok: true,
+                        usuarioDB,
+                        token,
+                        id: usuarioDB.id,
+                        menu: menu
+                    });
                 });
 
             });
         }
+    });
+});
+
+app.get("/menu", (req, res) => {
+    var role = req.query.role;
+    Menu.findOne({ userType: role }, (err, menu) => {
+        res.status(200).json({
+            ok: true,
+            menu: menu,
+            err
+        });
     });
 });
 
@@ -156,12 +172,15 @@ app.post("/", (req, res) => {
         }
         usuario.password = ':)';
         var token = jwt.sign({ usuario }, SEED, { expiresIn: 14000 })
+        Menu.findOne({ userType: usuario.role }, (err, menu) => {
 
-        res.status(200).json({
-            ok: true,
-            usuario,
-            token,
-            id: usuario.id
+            res.status(200).json({
+                ok: true,
+                usuario,
+                token,
+                id: usuario.id,
+                menu
+            });
         });
     });
 });

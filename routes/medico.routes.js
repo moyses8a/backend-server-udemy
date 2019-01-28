@@ -1,6 +1,7 @@
 var express = require('express');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
+var mongodb = require("mongodb");
 
 var mdAuth = require('../middlewares/auth');
 
@@ -41,6 +42,48 @@ app.get("/", (req, res, next) => {
 
 
         });
+});
+
+// ==================================================
+// Obtener unico médico
+// ==================================================
+
+app.get('/:id', (req, res, next) => {
+    var id = req.params.id;
+    if (!mongodb.ObjectID.isValid(id)) {
+        return res.status(404).json({
+            ok: false,
+            mensaje: 'Error al buscar usuarios'
+        });
+    }
+
+    Medico.findById(id)
+        .populate('usuario')
+        .populate('hospital')
+        .exec((err, medico) => {
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    mensaje: 'Error al buscar usuarios',
+                    errors: err
+                });
+            }
+
+            if (!medico) {
+                return res.status(400).json({
+                    ok: false,
+                    mensaje: 'El medico con el id' + id + 'no existe',
+                    errors: { message: 'No existe un medico con este ID' }
+                });
+            }
+
+            res.status(200).json({
+                ok: true,
+                medico: medico
+            });
+
+        });
+
 });
 
 // ============================================

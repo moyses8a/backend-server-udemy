@@ -12,7 +12,7 @@ exports.verifyToken = (req, res, next) => {
         if (err) {
             return res.status(401).json({
                 ok: false,
-                mensaje: 'Token inválido',
+                mensaje: 'Token inválido aaa',
                 errors: err
             });
         }
@@ -25,4 +25,39 @@ exports.verifyToken = (req, res, next) => {
         //     decode
         // });
     });
+}
+
+// ============================================
+// verificar ADMIN USER
+// ============================================
+
+exports.verifyAdminRole = (req, res, next) => {
+    var usuario = req.usuario;
+
+    if (usuario.role === 'ADMIN_ROLE') {
+        next();
+        return;
+    } else {
+        return res.status(401).json({
+            ok: false,
+            mensaje: 'Token inválido - no es ADMIN',
+            errors: err
+        });
+    }
+}
+
+exports.verifyAdminRoleOrMySelf = (req, res, next) => {
+    var usuario = req.usuario;
+    var id = req.params.id;
+
+    if (usuario.role === 'ADMIN_ROLE' || id === usuario._id) {
+        next();
+        return;
+    } else {
+        return res.status(401).json({
+            ok: false,
+            mensaje: 'Token inválido noes tu usuario, ni eres ADMIN',
+            errors: err
+        });
+    }
 }

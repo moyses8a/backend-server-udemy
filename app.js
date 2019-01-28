@@ -1,5 +1,6 @@
 // Requires
 var express = require('express');
+var cors = require('cors');
 var mongoose = require('mongoose');
 var serveIndex = require('serve-index');
 var bodyParser = require('body-parser');
@@ -7,6 +8,11 @@ const fileUpload = require('express-fileupload');
 
 //  Inicializar variables
 var app = express();
+
+var corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 // Body Parser
 // parse application/x-www-form-urlencoded
@@ -35,17 +41,17 @@ mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', { useNewUrlP
 // Serve URLs like /ftp/thing as public/ftp/thing
 // The express.static serves the file contents
 // The serveIndex is this module serving the directory
-app.use('/imgs', express.static(__dirname + '/uploads'), serveIndex(__dirname + '/uploads', { 'icons': true }))
+app.use('/imgs', cors(corsOptions), express.static(__dirname + '/uploads'), serveIndex(__dirname + '/uploads', { 'icons': true }))
 
 // Rutas
-app.use("/login", loginRoutes);
-app.use("/medico", medicoRoutes);
-app.use("/upload", uploadRoutes);
-app.use("/usuario", usuarioRoutes);
-app.use("/imagenes", imagenesRoutes);
-app.use("/busqueda", busquedasRoutes);
-app.use("/hospital", hospitalesRoutes);
-app.use("/", appRoutes);
+app.use("/login", cors(corsOptions), loginRoutes);
+app.use("/medico", cors(corsOptions), medicoRoutes);
+app.use("/upload", cors(corsOptions), uploadRoutes);
+app.use("/usuario", cors(corsOptions), usuarioRoutes);
+app.use("/imagenes", cors(corsOptions), imagenesRoutes);
+app.use("/busqueda", cors(corsOptions), busquedasRoutes);
+app.use("/hospital", cors(corsOptions), hospitalesRoutes);
+app.use("/", cors(corsOptions), appRoutes);
 
 // Escuchar peticiones
 app.listen(3000, () => console.log("Express server puesto 3000: \x1b[32m%s\x1b[0m", "Online"));
